@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    Contacto
+{% endblock %}
+
+{% block content %}
+    <form action="{{ url_for('contacto') }}" method="POST">
+        <div>
+            <label for="nombres">Nombres</label>
+            <input type="text" id="nombres" name="nombres">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div>
+            <label for="celular">Celular</label>
+            <input type="text" id="celular" name="celular">
+        </div>
+        <div>
+            <label for="observacion">Observación</label>
+            <textarea id="observacion" name="observacion">
+            </textarea>
+        </div>
+        <button type="submit">Guardar Submit</button>
+    </form>
+{% endblock %}

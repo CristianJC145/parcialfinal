@@ -1,0 +1,45 @@
+{% extends 'layouts/base.html' %} {% block title %} Crear Producto {% endblock %}
+{% block content %}
+<form action="{{ url_for('crear_producto') }}" method="POST">
+  <div class="title-page">
+    <h1>Crear Producto</h1>
+  </div>
+
+
+  <div class="form-group">
+    <label for="codigo">Codigo</label>
+    <input type="text" 
+      required
+      id="codigo" name="codigo" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input type="text" 
+      required
+      id="nombre" name="nombre" class="form-control" />
+  </div>
+
+  <div class="form-group form-control">
+    <label for="categoria">Categoria</label>
+    <select name="categoria" id="categoria">
+        {% for categoriaa in categorias %}
+            <option value="{{categoriaa[0]}}">{{categoriaa[1]}}</option>
+        {% endfor %}
+    </select>
+    
+  </div>
+
+  <div class="form-group">
+    <label for="cantidad">Cantidad</label>
+    <input type="number" required id="cantidad" name="cantidad" class="form-control" />
+  </div>
+
+  <div class="footer-page">
+    <button type="submit" class="btn btn-success">Crear</button>
+    <a href="{{ url_for('usuarios') }}" class="btn">Volver</a>
+  </div>
+
+  
+</form>
+{% endblock %}
